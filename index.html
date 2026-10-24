@@ -1,0 +1,58 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>קליק מרקט – כל מה שצריך, במקום אחד</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial,sans-serif;background:#f6f7fb;color:#1d2433}
+header{background:#1f3b73;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+header a{color:#fff;text-decoration:none}.logo{font-weight:800;font-size:22px}nav a{margin-inline-start:12px;font-size:14px}
+.cartbtn{background:#ffb703;color:#1d2433;border:0;border-radius:20px;padding:8px 14px;font-weight:700;cursor:pointer}
+.hero{background:linear-gradient(135deg,#1f3b73,#3a6fd8);color:#fff;padding:28px 16px;text-align:center}.hero h1{margin:0 0 8px}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}.badges span{background:#ffffff22;padding:6px 10px;border-radius:14px;font-size:13px}
+main{max-width:1100px;margin:auto;padding:16px}.cats{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.cats button{border:1px solid #c9d3ea;background:#fff;border-radius:20px;padding:8px 14px;cursor:pointer;white-space:nowrap}.cats button.on{background:#1f3b73;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:14px}
+.card{background:#fff;border-radius:12px;padding:12px;box-shadow:0 1px 4px #0001;cursor:pointer;display:flex;flex-direction:column}
+.img{font-size:64px;text-align:center;background:#eef2fb;border-radius:10px;padding:18px 0}.card h3{font-size:15px;margin:10px 0 4px}
+.price{font-weight:800;color:#1f3b73}.old{text-decoration:line-through;color:#888;font-size:13px;margin-inline-start:6px}
+.btn{background:#1f3b73;color:#fff;border:0;border-radius:8px;padding:10px;cursor:pointer;margin-top:auto;font-weight:700}
+.modal{position:fixed;inset:0;background:#0007;display:none;align-items:center;justify-content:center;z-index:10;padding:12px}.modal.on{display:flex}
+.box{background:#fff;border-radius:14px;max-width:520px;width:100%;padding:18px;max-height:90vh;overflow:auto}.x{float:left;border:0;background:none;font-size:22px;cursor:pointer}
+.line{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;padding:8px 0}
+.page{display:none;background:#fff;border-radius:12px;padding:18px}.page.on{display:block}input{width:100%;padding:10px;margin:5px 0;border:1px solid #ccd;border-radius:8px}
+.note{background:#fff4d6;border-radius:8px;padding:10px;font-size:14px}footer{text-align:center;padding:20px;font-size:13px;color:#667}footer a{color:#1f3b73;margin:0 6px}
+@media(max-width:600px){nav{display:none}.grid{grid-template-columns:1fr 1fr}.img{font-size:48px}}
+</style></head><body>
+<header><a class="logo" href="#home">🛍️ קליק מרקט</a><nav><a href="#home">חנות</a><a href="#shipping">משלוחים</a><a href="#returns">החזרות</a><a href="#privacy">פרטיות</a></nav><button class="cartbtn" onclick="openCart()">🛒 <span id="cc">0</span></button></header>
+<div id="home-view"><section class="hero"><h1>מוצרים שימושיים במחירים הוגנים</h1><div>גאדג'טים, בית, חיות מחמד וטיפוח – משלוח עד הבית</div><div class="badges"><span>🚚 משלוח חינם מעל ₪149</span><span>↩️ החזרה תוך 14 יום</span><span>🔒 תשלום מאובטח (בקרוב)</span></div></section>
+<main><div class="cats" id="cats"></div><div class="grid" id="grid"></div></main></div>
+<main><div class="page" id="shipping"><h2>משלוחים</h2><p>המוצרים נשלחים ישירות מהספקים שלנו. זמן אספקה משוער: 7–20 ימי עסקים (תלוי במוצר ובחברת השילוח). מספר מעקב יישלח במייל לאחר שליחת ההזמנה.</p><p>משלוח חינם בהזמנה מעל ₪149, אחרת ₪19.90. המסירה לנקודת איסוף או עד הבית לפי חברת השילוח.</p></div>
+<div class="page" id="returns"><h2>החזרות וביטולים</h2><p>בהתאם לחוק הגנת הצרכן, ניתן לבטל עסקה תוך 14 יום מקבלת המוצר. דמי ביטול: עד 5% או ₪100, הנמוך מביניהם. מוצר פגום – החלפה או זיכוי מלא ללא עלות. פנייה דרך עמוד יצירת הקשר.</p></div>
+<div class="page" id="privacy"><h2>מדיניות פרטיות</h2><p>אנו אוספים רק את הפרטים הנדרשים לביצוע ההזמנה (שם, כתובת, טלפון, מייל) ומעבירים אותם לספק ולחברת השילוח לצורך המשלוח בלבד. איננו שומרים פרטי כרטיס אשראי. ניתן לבקש מחיקת מידע בכל עת.</p></div>
+<div class="page" id="checkout"><h2>קופה</h2><div id="sum"></div><input placeholder="שם מלא"><input placeholder="טלפון"><input placeholder="אימייל"><input placeholder="עיר, רחוב ומספר"><div class="note">⚠️ החנות בשלב השקה – התשלום עדיין לא פעיל ולא תחויבו. ההזמנה לא תישלח.</div><button class="btn" style="width:100%;margin-top:10px" onclick="alert('תודה! התשלום יופעל בקרוב. לא בוצע חיוב.')">אישור הזמנה (הדגמה)</button></div></main>
+<footer>© קליק מרקט · <a href="#shipping">משלוחים</a><a href="#returns">החזרות</a><a href="#privacy">פרטיות</a></footer>
+<div class="modal" id="m"><div class="box" id="mb"></div></div>
+<script>
+const P=[
+{id:1,c:'טכנולוגיה',e:'🔌',n:'כבל USB-C טעינה מהירה 100W (2 מטר)',p:39,o:59,d:'כבל קלוע עמיד, תומך בטעינה מהירה לטלפונים ומחשבים ניידים.'},
+{id:2,c:'טכנולוגיה',e:'🎧',n:'אוזניות אלחוטיות TWS עם מארז טעינה',p:99,o:149,d:'בלוטות׳ 5.3, עד 24 שעות עם המארז, מיקרופון לשיחות.'},
+{id:3,c:'טכנולוגיה',e:'🚗',n:'מעמד טלפון מגנטי לרכב',p:49,o:79,d:'התקנה בפתח מיזוג, אחיזה חזקה, סיבוב 360°.'},
+{id:4,c:'בית ומטבח',e:'💡',n:'פס לד RGB חכם 5 מטר + שלט',p:69,o:99,d:'שליטה מאפליקציה, סנכרון למוזיקה, הדבקה קלה.'},
+{id:5,c:'בית ומטבח',e:'🧺',n:'סט 6 קופסאות ארגון שקופות למקרר',p:79,o:119,d:'שומר על סדר וטריות, ניתן לערום, ללא BPA.'},
+{id:6,c:'בית ומטבח',e:'🥕',n:'קוצץ ירקות ידני רב-שימושי',p:59,o:89,d:'קוצץ, מגרר ופורס – חוסך זמן במטבח.'},
+{id:7,c:'חיות מחמד',e:'🐶',n:'מברשת הסרת פרווה לכלב/חתול',p:45,o:69,d:'כפתור שחרור שערות בלחיצה, עדינה לעור.'},
+{id:8,c:'חיות מחמד',e:'💧',n:'מזרקת מים לחתולים 2.5 ליטר',p:89,o:129,d:'סינון כפול, שקטה, מעודדת שתייה.'},
+{id:9,c:'חיות מחמד',e:'🦮',n:'רצועה נשלפת 5 מטר עם פנס',p:55,o:79,d:'נעילה בלחיצה, ידית ארגונומית.'},
+{id:10,c:'טיפוח ובריאות',e:'💆',n:'אקדח עיסוי מיני',p:129,o:199,d:'4 ראשים, 6 עוצמות, טעינת USB-C.'},
+{id:11,c:'טיפוח ובריאות',e:'✨',n:'גואשה חשמלי לעיסוי פנים',p:89,o:139,d:'רטט עדין וחימום, לשגרת טיפוח ביתית.'},
+{id:12,c:'טיפוח ובריאות',e:'🏋️',n:'סט 5 גומיות התנגדות לאימון ביתי',p:49,o:79,d:'5 רמות קושי, כולל נרתיק נשיאה.'}];
+let cat='הכל',cart=JSON.parse(localStorage.cart||'{}');const $=i=>document.getElementById(i);
+function save(){localStorage.cart=JSON.stringify(cart);$('cc').textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function render(){const cs=['הכל',...new Set(P.map(p=>p.c))];$('cats').innerHTML=cs.map(c=>`<button class="${c==cat?'on':''}" onclick="cat='${c}';render()">${c}</button>`).join('');
+$('grid').innerHTML=P.filter(p=>cat=='הכל'||p.c==cat).map(p=>`<div class="card" onclick="show(${p.id})"><div class="img">${p.e}</div><h3>${p.n}</h3><div><span class="price">₪${p.p}</span><span class="old">₪${p.o}</span></div><button class="btn" onclick="event.stopPropagation();add(${p.id})">הוספה לסל</button></div>`).join('')}
+function show(id){const p=P.find(x=>x.id==id);$('mb').innerHTML=`<button class="x" onclick="close_()">×</button><div class="img">${p.e}</div><h2>${p.n}</h2><p>${p.d}</p><p><span class="price">₪${p.p}</span><span class="old">₪${p.o}</span></p><p>🚚 אספקה משוערת 7–20 ימי עסקים · ↩️ החזרה תוך 14 יום</p><button class="btn" style="width:100%" onclick="add(${p.id});close_()">הוספה לסל</button>`;$('m').classList.add('on')}
+function add(id){cart[id]=(cart[id]||0)+1;save()}function close_(){$('m').classList.remove('on')}
+function total(){let s=0;for(const k in cart)s+=P.find(p=>p.id==k).p*cart[k];return s}
+function lines(){const s=total(),sh=s>=149||!s?0:19.9;return Object.keys(cart).map(k=>{const p=P.find(x=>x.id==k);return `<div class="line"><span>${p.e} ${p.n} ×${cart[k]}</span><span>₪${p.p*cart[k]} <button onclick="cart[${k}]--;if(!cart[${k}])delete cart[${k}];save();openCart()">−</button></span></div>`}).join('')+`<div class="line"><span>משלוח</span><span>₪${sh}</span></div><div class="line"><b>סה״כ</b><b>₪${(s+sh).toFixed(2)}</b></div>`}
+function openCart(){$('mb').innerHTML=`<button class="x" onclick="close_()">×</button><h2>סל קניות</h2>`+(Object.keys(cart).length?lines()+`<button class="btn" style="width:100%;margin-top:10px" onclick="close_();location.hash='checkout'">למעבר לקופה</button>`:'<p>הסל ריק</p>');$('m').classList.add('on')}
+function route(){const h=location.hash.slice(1)||'home';document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id==h));$('home-view').style.display=h=='home'?'':'none';if(h=='checkout')$('sum').innerHTML=lines();scrollTo(0,0)}
+$('m').onclick=e=>{if(e.target.id=='m')close_()};onhashchange=route;render();save();route();
+</script></body></html>
