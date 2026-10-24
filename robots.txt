@@ -2,4 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /cart.html
 Disallow: /checkout.html
+Disallow: /he/cart.html
+Disallow: /he/checkout.html
 Sitemap: https://benkehati26-pixel.github.io/click-market/sitemap.xml

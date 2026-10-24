@@ -2,85 +2,97 @@
  {
   "id": "p01",
   "name": "Wireless Earbuds with Charging Case",
+  "name_he": "אוזניות אלחוטיות עם קופסת טעינה",
   "cat": "Audio",
-  "price": 29.9,
-  "compare_at": 49.9
+  "price_usd": 29.9,
+  "compare_at_usd": 49.9
  },
  {
   "id": "p02",
   "name": "3-in-1 Wireless Charging Stand",
+  "name_he": "מעמד טעינה אלחוטי 3 ב-1",
   "cat": "Tech",
-  "price": 34.9,
-  "compare_at": 59.9
+  "price_usd": 34.9,
+  "compare_at_usd": 59.9
  },
  {
   "id": "p03",
   "name": "Foldable LED Desk Lamp",
+  "name_he": "מנורת שולחן LED מתקפלת",
   "cat": "Home",
-  "price": 27.9,
-  "compare_at": 44.9
+  "price_usd": 27.9,
+  "compare_at_usd": 44.9
  },
  {
   "id": "p04",
   "name": "Insulated Steel Water Bottle 500ml",
+  "name_he": "בקבוק נירוסטה תרמי 500 מ\"ל",
   "cat": "Outdoor",
-  "price": 19.9,
-  "compare_at": 32.9
+  "price_usd": 19.9,
+  "compare_at_usd": 32.9
  },
  {
   "id": "p05",
   "name": "Portable USB Blender Bottle",
+  "name_he": "בלנדר נייד נטען USB",
   "cat": "Kitchen",
-  "price": 24.9,
-  "compare_at": 39.9
+  "price_usd": 24.9,
+  "compare_at_usd": 39.9
  },
  {
   "id": "p06",
   "name": "10\" LED Ring Light with Tripod",
+  "name_he": "טבעת תאורה LED 10\" עם חצובה",
   "cat": "Tech",
-  "price": 26.9,
-  "compare_at": 45.9
+  "price_usd": 26.9,
+  "compare_at_usd": 45.9
  },
  {
   "id": "p07",
   "name": "Reusable Pet Hair Remover Roller",
+  "name_he": "רולר רב-פעמי להסרת שיער חיות",
   "cat": "Pets",
-  "price": 14.9,
-  "compare_at": 24.9
+  "price_usd": 14.9,
+  "compare_at_usd": 24.9
  },
  {
   "id": "p08",
   "name": "Mini Portable Projector",
+  "name_he": "מקרן מיני נייד",
   "cat": "Tech",
-  "price": 69.9,
-  "compare_at": 109.9
+  "price_usd": 69.9,
+  "compare_at_usd": 109.9
  },
  {
   "id": "p09",
   "name": "Anti-Theft Laptop Backpack",
+  "name_he": "תיק גב למחשב נגד גניבות",
   "cat": "Travel",
-  "price": 39.9,
-  "compare_at": 64.9
+  "price_usd": 39.9,
+  "compare_at_usd": 64.9
  },
  {
   "id": "p10",
   "name": "Fabric Resistance Bands (Set of 5)",
+  "name_he": "גומיות התנגדות מבד (סט 5)",
   "cat": "Fitness",
-  "price": 16.9,
-  "compare_at": 27.9
+  "price_usd": 16.9,
+  "compare_at_usd": 27.9
  },
  {
   "id": "p11",
   "name": "Magnetic Car Vent Phone Mount",
+  "name_he": "מחזיק טלפון מגנטי לרכב",
   "cat": "Travel",
-  "price": 12.9,
-  "compare_at": 21.9
+  "price_usd": 12.9,
+  "compare_at_usd": 21.9
  },
  {
   "id": "p12",
   "name": "Silicone Kitchen Utensil Set",
+  "name_he": "סט כלי מטבח מסיליקון",
   "cat": "Kitchen",
-  "price": 29.9,
-  "compare_at": 47.9
+  "price_usd": 29.9,
+  "compare_at_usd": 47.9
  }
 ]
