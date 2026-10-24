@@ -1,12 +1,14 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>קליק מרקט – כל מה שצריך, במקום אחד</title>
+<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Click Market – Everything you need, shipped worldwide</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial,sans-serif;background:#f6f7fb;color:#1d2433}
-header{background:#1f3b73;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
-header a{color:#fff;text-decoration:none}.logo{font-weight:800;font-size:22px}nav a{margin-inline-start:12px;font-size:14px}
-.cartbtn{background:#ffb703;color:#1d2433;border:0;border-radius:20px;padding:8px 14px;font-weight:700;cursor:pointer}
-.hero{background:linear-gradient(135deg,#1f3b73,#3a6fd8);color:#fff;padding:28px 16px;text-align:center}.hero h1{margin:0 0 8px}
+header{background:#1f3b73;color:#fff;padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+header a{color:#fff;text-decoration:none}.logo{font-weight:800;font-size:21px}nav a{margin-inline-start:12px;font-size:14px}
+.tools{display:flex;gap:6px;align-items:center}select,.lang{border:0;border-radius:16px;padding:6px 8px;font-weight:600;cursor:pointer}
+.cartbtn{background:#ffb703;color:#1d2433;border:0;border-radius:20px;padding:7px 12px;font-weight:700;cursor:pointer}
+.hero{background:linear-gradient(135deg,#1f3b73,#3a6fd8);color:#fff;padding:26px 16px;text-align:center}.hero h1{margin:0 0 8px}
 .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}.badges span{background:#ffffff22;padding:6px 10px;border-radius:14px;font-size:13px}
+.demo{background:#fff4d6;color:#5a4300;text-align:center;font-size:13px;padding:6px}
 main{max-width:1100px;margin:auto;padding:16px}.cats{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
 .cats button{border:1px solid #c9d3ea;background:#fff;border-radius:20px;padding:8px 14px;cursor:pointer;white-space:nowrap}.cats button.on{background:#1f3b73;color:#fff}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:14px}
@@ -15,44 +17,70 @@ main{max-width:1100px;margin:auto;padding:16px}.cats{display:flex;gap:8px;overfl
 .price{font-weight:800;color:#1f3b73}.old{text-decoration:line-through;color:#888;font-size:13px;margin-inline-start:6px}
 .btn{background:#1f3b73;color:#fff;border:0;border-radius:8px;padding:10px;cursor:pointer;margin-top:auto;font-weight:700}
 .modal{position:fixed;inset:0;background:#0007;display:none;align-items:center;justify-content:center;z-index:10;padding:12px}.modal.on{display:flex}
-.box{background:#fff;border-radius:14px;max-width:520px;width:100%;padding:18px;max-height:90vh;overflow:auto}.x{float:left;border:0;background:none;font-size:22px;cursor:pointer}
-.line{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;padding:8px 0}
+.box{background:#fff;border-radius:14px;max-width:520px;width:100%;padding:18px;max-height:90vh;overflow:auto}.x{float:inline-end;border:0;background:none;font-size:22px;cursor:pointer}
+.line{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;padding:8px 0;gap:8px}
 .page{display:none;background:#fff;border-radius:12px;padding:18px}.page.on{display:block}input{width:100%;padding:10px;margin:5px 0;border:1px solid #ccd;border-radius:8px}
-.note{background:#fff4d6;border-radius:8px;padding:10px;font-size:14px}footer{text-align:center;padding:20px;font-size:13px;color:#667}footer a{color:#1f3b73;margin:0 6px}
-@media(max-width:600px){nav{display:none}.grid{grid-template-columns:1fr 1fr}.img{font-size:48px}}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #dde;padding:8px;text-align:start;font-size:14px}
+.note{background:#fff4d6;border-radius:8px;padding:10px;font-size:14px}.small{font-size:12px;color:#667}footer{text-align:center;padding:20px;font-size:13px;color:#667}footer a{color:#1f3b73;margin:0 6px}
+@media(max-width:700px){nav{display:none}.grid{grid-template-columns:1fr 1fr}.img{font-size:48px}}
 </style></head><body>
-<header><a class="logo" href="#home">🛍️ קליק מרקט</a><nav><a href="#home">חנות</a><a href="#shipping">משלוחים</a><a href="#returns">החזרות</a><a href="#privacy">פרטיות</a></nav><button class="cartbtn" onclick="openCart()">🛒 <span id="cc">0</span></button></header>
-<div id="home-view"><section class="hero"><h1>מוצרים שימושיים במחירים הוגנים</h1><div>גאדג'טים, בית, חיות מחמד וטיפוח – משלוח עד הבית</div><div class="badges"><span>🚚 משלוח חינם מעל ₪149</span><span>↩️ החזרה תוך 14 יום</span><span>🔒 תשלום מאובטח (בקרוב)</span></div></section>
-<main><div class="cats" id="cats"></div><div class="grid" id="grid"></div></main></div>
-<main><div class="page" id="shipping"><h2>משלוחים</h2><p>המוצרים נשלחים ישירות מהספקים שלנו. זמן אספקה משוער: 7–20 ימי עסקים (תלוי במוצר ובחברת השילוח). מספר מעקב יישלח במייל לאחר שליחת ההזמנה.</p><p>משלוח חינם בהזמנה מעל ₪149, אחרת ₪19.90. המסירה לנקודת איסוף או עד הבית לפי חברת השילוח.</p></div>
-<div class="page" id="returns"><h2>החזרות וביטולים</h2><p>בהתאם לחוק הגנת הצרכן, ניתן לבטל עסקה תוך 14 יום מקבלת המוצר. דמי ביטול: עד 5% או ₪100, הנמוך מביניהם. מוצר פגום – החלפה או זיכוי מלא ללא עלות. פנייה דרך עמוד יצירת הקשר.</p></div>
-<div class="page" id="privacy"><h2>מדיניות פרטיות</h2><p>אנו אוספים רק את הפרטים הנדרשים לביצוע ההזמנה (שם, כתובת, טלפון, מייל) ומעבירים אותם לספק ולחברת השילוח לצורך המשלוח בלבד. איננו שומרים פרטי כרטיס אשראי. ניתן לבקש מחיקת מידע בכל עת.</p></div>
-<div class="page" id="checkout"><h2>קופה</h2><div id="sum"></div><input placeholder="שם מלא"><input placeholder="טלפון"><input placeholder="אימייל"><input placeholder="עיר, רחוב ומספר"><div class="note">⚠️ החנות בשלב השקה – התשלום עדיין לא פעיל ולא תחויבו. ההזמנה לא תישלח.</div><button class="btn" style="width:100%;margin-top:10px" onclick="alert('תודה! התשלום יופעל בקרוב. לא בוצע חיוב.')">אישור הזמנה (הדגמה)</button></div></main>
-<footer>© קליק מרקט · <a href="#shipping">משלוחים</a><a href="#returns">החזרות</a><a href="#privacy">פרטיות</a></footer>
+<div class="demo" data-t="demoBar"></div>
+<header><a class="logo" href="#home">🛍️ <span data-t="brand"></span></a><nav><a href="#home" data-t="shop"></a><a href="#shipping" data-t="shipping"></a><a href="#returns" data-t="returns"></a><a href="#privacy" data-t="privacy"></a></nav>
+<div class="tools"><select id="cur" aria-label="Currency"><option>USD</option><option>EUR</option><option>GBP</option><option>ILS</option></select><button class="lang" id="lang"></button><button class="cartbtn" onclick="openCart()">🛒 <span id="cc">0</span></button></div></header>
+<div id="home-view"><div class="hero"><h1 data-t="heroT"></h1><div data-t="heroS"></div><div class="badges"><span data-t="b1"></span><span data-t="b2"></span><span data-t="b3"></span></div></div>
+<main><div class="cats" id="cats"></div><div class="grid" id="grid"></div><p class="small" data-t="fxNote"></p></main></div>
+<main><div class="page" id="shipping"></div><div class="page" id="returns"></div><div class="page" id="privacy"></div>
+<div class="page" id="checkout"><h2 data-t="checkout"></h2><div id="sum"></div><input data-p="fName"><input data-p="fEmail"><input data-p="fCountry"><input data-p="fAddr"><div class="note" data-t="demoNote"></div><button class="btn" style="width:100%;margin-top:10px" onclick="alert(T.demoAlert)" data-t="confirm"></button></div></main>
+<footer>© <span data-t="brand"></span> · <a href="#shipping" data-t="shipping"></a><a href="#returns" data-t="returns"></a><a href="#privacy" data-t="privacy"></a></footer>
 <div class="modal" id="m"><div class="box" id="mb"></div></div>
 <script>
+const FX={USD:[1,'$'],EUR:[0.92,'€'],GBP:[0.79,'£'],ILS:[3.7,'₪']};
+const CATS={tech:['Tech','טכנולוגיה'],home:['Home & Kitchen','בית ומטבח'],pets:['Pets','חיות מחמד'],care:['Health & Care','טיפוח ובריאות']};
 const P=[
-{id:1,c:'טכנולוגיה',e:'🔌',n:'כבל USB-C טעינה מהירה 100W (2 מטר)',p:39,o:59,d:'כבל קלוע עמיד, תומך בטעינה מהירה לטלפונים ומחשבים ניידים.'},
-{id:2,c:'טכנולוגיה',e:'🎧',n:'אוזניות אלחוטיות TWS עם מארז טעינה',p:99,o:149,d:'בלוטות׳ 5.3, עד 24 שעות עם המארז, מיקרופון לשיחות.'},
-{id:3,c:'טכנולוגיה',e:'🚗',n:'מעמד טלפון מגנטי לרכב',p:49,o:79,d:'התקנה בפתח מיזוג, אחיזה חזקה, סיבוב 360°.'},
-{id:4,c:'בית ומטבח',e:'💡',n:'פס לד RGB חכם 5 מטר + שלט',p:69,o:99,d:'שליטה מאפליקציה, סנכרון למוזיקה, הדבקה קלה.'},
-{id:5,c:'בית ומטבח',e:'🧺',n:'סט 6 קופסאות ארגון שקופות למקרר',p:79,o:119,d:'שומר על סדר וטריות, ניתן לערום, ללא BPA.'},
-{id:6,c:'בית ומטבח',e:'🥕',n:'קוצץ ירקות ידני רב-שימושי',p:59,o:89,d:'קוצץ, מגרר ופורס – חוסך זמן במטבח.'},
-{id:7,c:'חיות מחמד',e:'🐶',n:'מברשת הסרת פרווה לכלב/חתול',p:45,o:69,d:'כפתור שחרור שערות בלחיצה, עדינה לעור.'},
-{id:8,c:'חיות מחמד',e:'💧',n:'מזרקת מים לחתולים 2.5 ליטר',p:89,o:129,d:'סינון כפול, שקטה, מעודדת שתייה.'},
-{id:9,c:'חיות מחמד',e:'🦮',n:'רצועה נשלפת 5 מטר עם פנס',p:55,o:79,d:'נעילה בלחיצה, ידית ארגונומית.'},
-{id:10,c:'טיפוח ובריאות',e:'💆',n:'אקדח עיסוי מיני',p:129,o:199,d:'4 ראשים, 6 עוצמות, טעינת USB-C.'},
-{id:11,c:'טיפוח ובריאות',e:'✨',n:'גואשה חשמלי לעיסוי פנים',p:89,o:139,d:'רטט עדין וחימום, לשגרת טיפוח ביתית.'},
-{id:12,c:'טיפוח ובריאות',e:'🏋️',n:'סט 5 גומיות התנגדות לאימון ביתי',p:49,o:79,d:'5 רמות קושי, כולל נרתיק נשיאה.'}];
-let cat='הכל',cart=JSON.parse(localStorage.cart||'{}');const $=i=>document.getElementById(i);
+{id:1,c:'tech',e:'🔌',p:10.9,o:15.9,n:['USB-C 100W Fast-Charging Cable (2 m)','כבל USB-C טעינה מהירה 100W (2 מטר)'],d:['Durable braided cable for phones and laptops.','כבל קלוע עמיד, תומך בטעינה מהירה לטלפונים ומחשבים ניידים.']},
+{id:2,c:'tech',e:'🎧',p:26.9,o:39.9,n:['TWS Wireless Earbuds with Charging Case','אוזניות אלחוטיות TWS עם מארז טעינה'],d:['Bluetooth 5.3, up to 24 h with case, call mic.','בלוטות׳ 5.3, עד 24 שעות עם המארז, מיקרופון לשיחות.']},
+{id:3,c:'tech',e:'🚗',p:13.9,o:21.9,n:['Magnetic Car Phone Mount','מעמד טלפון מגנטי לרכב'],d:['Air-vent mount, strong grip, 360° rotation.','התקנה בפתח מיזוג, אחיזה חזקה, סיבוב 360°.']},
+{id:4,c:'home',e:'💡',p:18.9,o:26.9,n:['Smart RGB LED Strip 5 m + Remote','פס לד RGB חכם 5 מטר + שלט'],d:['App control, music sync, easy stick-on.','שליטה מאפליקציה, סנכרון למוזיקה, הדבקה קלה.']},
+{id:5,c:'home',e:'🧺',p:21.9,o:31.9,n:['Set of 6 Clear Fridge Organizers','סט 6 קופסאות ארגון שקופות למקרר'],d:['Stackable, BPA-free, keeps food fresh.','שומר על סדר וטריות, ניתן לערום, ללא BPA.']},
+{id:6,c:'home',e:'🥕',p:15.9,o:23.9,n:['Multi-Purpose Manual Vegetable Chopper','קוצץ ירקות ידני רב-שימושי'],d:['Chops, grates and slices – saves kitchen time.','קוצץ, מגרר ופורס – חוסך זמן במטבח.']},
+{id:7,c:'pets',e:'🐶',p:12.9,o:18.9,n:['Self-Cleaning Pet Grooming Brush','מברשת הסרת פרווה לכלב/חתול'],d:['One-click hair release, gentle on skin.','כפתור שחרור שערות בלחיצה, עדינה לעור.']},
+{id:8,c:'pets',e:'💧',p:24.9,o:34.9,n:['Cat Water Fountain 2.5 L','מזרקת מים לחתולים 2.5 ליטר'],d:['Double filtration, quiet, encourages drinking.','סינון כפול, שקטה, מעודדת שתייה.']},
+{id:9,c:'pets',e:'🦮',p:14.9,o:21.9,n:['5 m Retractable Leash with Light','רצועה נשלפת 5 מטר עם פנס'],d:['One-touch lock, ergonomic handle.','נעילה בלחיצה, ידית ארגונומית.']},
+{id:10,c:'care',e:'💆',p:34.9,o:54.9,n:['Mini Massage Gun','אקדח עיסוי מיני'],d:['4 heads, 6 speeds, USB-C charging.','4 ראשים, 6 עוצמות, טעינת USB-C.']},
+{id:11,c:'care',e:'✨',p:23.9,o:36.9,n:['Electric Gua Sha Face Massager','גואשה חשמלי לעיסוי פנים'],d:['Gentle vibration and warmth for home skincare.','רטט עדין וחימום, לשגרת טיפוח ביתית.']},
+{id:12,c:'care',e:'🏋️',p:13.9,o:21.9,n:['5-Piece Resistance Band Set','סט 5 גומיות התנגדות לאימון ביתי'],d:['5 resistance levels, carry pouch included.','5 רמות קושי, כולל נרתיק נשיאה.']}];
+const REG=[['United States','ארצות הברית','6–12'],['Canada','קנדה','8–15'],['United Kingdom','בריטניה','6–12'],['European Union','האיחוד האירופי','6–14'],['Australia & New Zealand','אוסטרליה וניו זילנד','8–18'],['Israel','ישראל','8–20'],['Rest of world','שאר העולם','10–25']];
+const L={en:{brand:'Click Market',shop:'Shop',shipping:'Shipping',returns:'Returns',privacy:'Privacy',all:'All',add:'Add to cart',cart:'Cart',empty:'Your cart is empty',toCheckout:'Go to checkout',ship:'Shipping',total:'Total',checkout:'Checkout',confirm:'Place order (demo)',
+demoBar:'⚠️ Demo store – no real payments are taken and no orders are shipped.',heroT:'Everything you need, shipped worldwide',heroS:'Handpicked gadgets, home, pet and wellness products – delivered from our partner suppliers.',b1:'🌍 Ships to 7 regions',b2:'🚚 Free shipping over $49',b3:'↩️ 30-day returns',
+fxNote:'Prices are set in USD. Other currencies use fixed illustrative rates (1 USD = 0.92 EUR = 0.79 GBP = 3.7 ILS) and are approximate; local taxes/duties may apply.',
+fName:'Full name',fEmail:'Email',fCountry:'Country',fAddr:'Address, city, postal code',demoNote:'⚠️ Demo checkout – payment is not active, you will not be charged, and nothing will be shipped.',demoAlert:'Thank you! This is a demo – no charge was made and no order was placed.',
+pm:'🚚 Est. delivery 6–14 business days (varies by destination) · ↩️ 30-day returns',
+shipPage:`<h2>Shipping</h2><p>Products ship directly from our partner suppliers and warehouses (US, EU and Asia). A tracking number is emailed once your order ships.</p><p>Free shipping on orders over $49; otherwise a flat $4.99.</p><table><tr><th>Destination</th><th>Est. delivery (business days)</th></tr>${'{R}'}</table><p class="small">⚠️ Estimates are illustrative and not yet verified with suppliers. Import duties/VAT may be charged by the destination country.</p>`,
+retPage:`<h2>Returns & Refunds</h2><p>Changed your mind? Request a return within 30 days of delivery. Items must be unused and in original packaging. Defective or wrong items: free replacement or full refund – just send a photo.</p><p>EU/UK customers keep their statutory 14-day right of withdrawal. Return shipping address is provided on request (may be a regional returns center).</p><p class="small">Demo policy – final terms will be published before the store goes live.</p>`,
+privPage:`<h2>Privacy Policy</h2><p>We collect only what is needed to fulfill an order (name, address, email, phone) and share it only with the supplier and carrier for delivery. We never store card details – payments are handled by the payment provider.</p><p>EU/UK (GDPR) and other residents may request access to, or deletion of, their data at any time. We use local storage only to remember your cart, language and currency.</p><p class="small">Demo policy – final terms will be published before the store goes live.</p>`},
+he:{brand:'קליק מרקט',shop:'חנות',shipping:'משלוחים',returns:'החזרות',privacy:'פרטיות',all:'הכל',add:'הוספה לסל',cart:'סל קניות',empty:'הסל ריק',toCheckout:'למעבר לקופה',ship:'משלוח',total:'סה״כ',checkout:'קופה',confirm:'אישור הזמנה (הדגמה)',
+demoBar:'⚠️ חנות הדגמה – לא מתבצע תשלום אמיתי ולא נשלחות הזמנות.',heroT:'כל מה שצריך, במשלוח לכל העולם',heroS:'גאדג׳טים, מוצרים לבית, לחיות מחמד ולטיפוח – ישירות מהספקים שלנו.',b1:'🌍 משלוח ל-7 אזורים',b2:'🚚 משלוח חינם מעל $49',b3:'↩️ החזרה תוך 30 יום',
+fxNote:'המחירים נקבעים בדולר. מטבעות אחרים לפי שערים קבועים להמחשה בלבד (1 USD = 0.92 EUR = 0.79 GBP = 3.7 ILS); ייתכנו מסים/מכס מקומיים.',
+fName:'שם מלא',fEmail:'אימייל',fCountry:'מדינה',fAddr:'כתובת, עיר, מיקוד',demoNote:'⚠️ קופת הדגמה – התשלום לא פעיל, לא תחויבו וההזמנה לא תישלח.',demoAlert:'תודה! זוהי הדגמה – לא בוצע חיוב ולא נשלחה הזמנה.',
+pm:'🚚 אספקה משוערת 6–14 ימי עסקים (לפי יעד) · ↩️ החזרה תוך 30 יום',
+shipPage:`<h2>משלוחים</h2><p>המוצרים נשלחים ישירות מהספקים והמחסנים שלנו (ארה״ב, אירופה ואסיה). מספר מעקב יישלח במייל עם שליחת ההזמנה.</p><p>משלוח חינם בהזמנה מעל $49, אחרת $4.99.</p><table><tr><th>יעד</th><th>זמן אספקה משוער (ימי עסקים)</th></tr>${'{R}'}</table><p class="small">⚠️ ההערכות להמחשה בלבד וטרם אומתו מול הספקים. מדינת היעד עשויה לגבות מכס/מע״מ.</p>`,
+retPage:`<h2>החזרות והחזרים</h2><p>ניתן לבקש החזרה תוך 30 יום מהקבלה, כשהמוצר לא בשימוש ובאריזה המקורית. מוצר פגום או שגוי – החלפה או החזר מלא ללא עלות (שלחו תמונה).</p><p>ללקוחות באיחוד האירופי ובבריטניה נשמרת זכות הביטול החוקית ל-14 יום. לקוחות בישראל – בהתאם לחוק הגנת הצרכן.</p><p class="small">מדיניות הדגמה – התנאים הסופיים יפורסמו לפני השקה.</p>`,
+privPage:`<h2>מדיניות פרטיות</h2><p>אנו אוספים רק את הנדרש לביצוע ההזמנה (שם, כתובת, אימייל, טלפון) ומעבירים אותו רק לספק ולחברת השילוח. איננו שומרים פרטי כרטיס אשראי.</p><p>תושבי האיחוד האירופי/בריטניה (GDPR) ואחרים רשאים לבקש עיון או מחיקה של המידע בכל עת. האחסון המקומי משמש רק לזכירת הסל, השפה והמטבע.</p><p class="small">מדיניות הדגמה – התנאים הסופיים יפורסמו לפני השקה.</p>`}};
+const $=i=>document.getElementById(i);const Q=new URLSearchParams(location.search);let lang=Q.get('lang')||localStorage.lang||'en',cur=Q.get('cur')||localStorage.cur||'USD',cat='all',cart=JSON.parse(localStorage.cart||'{}'),T;const li=()=>lang=='en'?0:1;
+const fmt=v=>{const[r,s]=FX[cur];const x=v*r;return s+(cur=='ILS'?Math.round(x):x.toFixed(2))};
+function applyLang(){T=L[lang];document.documentElement.lang=lang;document.documentElement.dir=lang=='he'?'rtl':'ltr';document.title=T.brand+' – '+T.heroT;
+document.querySelectorAll('[data-t]').forEach(e=>e.textContent=T[e.dataset.t]);document.querySelectorAll('[data-p]').forEach(e=>e.placeholder=T[e.dataset.p]);
+$('lang').textContent=lang=='en'?'עברית':'English';const rows=REG.map(r=>`<tr><td>${r[li()]}</td><td>${r[2]}</td></tr>`).join('');
+$('shipping').innerHTML=T.shipPage.replace('{R}',rows);$('returns').innerHTML=T.retPage;$('privacy').innerHTML=T.privPage;render();route()}
 function save(){localStorage.cart=JSON.stringify(cart);$('cc').textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
-function render(){const cs=['הכל',...new Set(P.map(p=>p.c))];$('cats').innerHTML=cs.map(c=>`<button class="${c==cat?'on':''}" onclick="cat='${c}';render()">${c}</button>`).join('');
-$('grid').innerHTML=P.filter(p=>cat=='הכל'||p.c==cat).map(p=>`<div class="card" onclick="show(${p.id})"><div class="img">${p.e}</div><h3>${p.n}</h3><div><span class="price">₪${p.p}</span><span class="old">₪${p.o}</span></div><button class="btn" onclick="event.stopPropagation();add(${p.id})">הוספה לסל</button></div>`).join('')}
-function show(id){const p=P.find(x=>x.id==id);$('mb').innerHTML=`<button class="x" onclick="close_()">×</button><div class="img">${p.e}</div><h2>${p.n}</h2><p>${p.d}</p><p><span class="price">₪${p.p}</span><span class="old">₪${p.o}</span></p><p>🚚 אספקה משוערת 7–20 ימי עסקים · ↩️ החזרה תוך 14 יום</p><button class="btn" style="width:100%" onclick="add(${p.id});close_()">הוספה לסל</button>`;$('m').classList.add('on')}
+function render(){$('cats').innerHTML=['all',...Object.keys(CATS)].map(c=>`<button class="${c==cat?'on':''}" onclick="cat='${c}';render()">${c=='all'?T.all:CATS[c][li()]}</button>`).join('');
+$('grid').innerHTML=P.filter(p=>cat=='all'||p.c==cat).map(p=>`<div class="card" onclick="show(${p.id})"><div class="img">${p.e}</div><h3>${p.n[li()]}</h3><div><span class="price">${fmt(p.p)}</span><span class="old">${fmt(p.o)}</span></div><button class="btn" onclick="event.stopPropagation();add(${p.id})">${T.add}</button></div>`).join('')}
+function show(id){const p=P.find(x=>x.id==id);$('mb').innerHTML=`<button class="x" onclick="close_()">×</button><div class="img">${p.e}</div><h2>${p.n[li()]}</h2><p>${p.d[li()]}</p><p><span class="price">${fmt(p.p)}</span><span class="old">${fmt(p.o)}</span></p><p>${T.pm}</p><button class="btn" style="width:100%" onclick="add(${p.id});close_()">${T.add}</button>`;$('m').classList.add('on')}
 function add(id){cart[id]=(cart[id]||0)+1;save()}function close_(){$('m').classList.remove('on')}
 function total(){let s=0;for(const k in cart)s+=P.find(p=>p.id==k).p*cart[k];return s}
-function lines(){const s=total(),sh=s>=149||!s?0:19.9;return Object.keys(cart).map(k=>{const p=P.find(x=>x.id==k);return `<div class="line"><span>${p.e} ${p.n} ×${cart[k]}</span><span>₪${p.p*cart[k]} <button onclick="cart[${k}]--;if(!cart[${k}])delete cart[${k}];save();openCart()">−</button></span></div>`}).join('')+`<div class="line"><span>משלוח</span><span>₪${sh}</span></div><div class="line"><b>סה״כ</b><b>₪${(s+sh).toFixed(2)}</b></div>`}
-function openCart(){$('mb').innerHTML=`<button class="x" onclick="close_()">×</button><h2>סל קניות</h2>`+(Object.keys(cart).length?lines()+`<button class="btn" style="width:100%;margin-top:10px" onclick="close_();location.hash='checkout'">למעבר לקופה</button>`:'<p>הסל ריק</p>');$('m').classList.add('on')}
-function route(){const h=location.hash.slice(1)||'home';document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id==h));$('home-view').style.display=h=='home'?'':'none';if(h=='checkout')$('sum').innerHTML=lines();scrollTo(0,0)}
-$('m').onclick=e=>{if(e.target.id=='m')close_()};onhashchange=route;render();save();route();
+function lines(){const s=total(),sh=s>=49||!s?0:4.99;return Object.keys(cart).map(k=>{const p=P.find(x=>x.id==k);return `<div class="line"><span>${p.e} ${p.n[li()]} ×${cart[k]}</span><span>${fmt(p.p*cart[k])} <button onclick="cart[${k}]--;if(!cart[${k}])delete cart[${k}];save();openCart()">−</button></span></div>`}).join('')+`<div class="line"><span>${T.ship}</span><span>${fmt(sh)}</span></div><div class="line"><b>${T.total}</b><b>${fmt(s+sh)}</b></div>`}
+function openCart(){$('mb').innerHTML=`<button class="x" onclick="close_()">×</button><h2>${T.cart}</h2>`+(Object.keys(cart).length?lines()+`<button class="btn" style="width:100%;margin-top:10px" onclick="close_();location.hash='checkout'">${T.toCheckout}</button>`:`<p>${T.empty}</p>`);$('m').classList.add('on')}
+function route(){const h=location.hash.slice(1)||'home';document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id==h));$('home-view').style.display=h=='home'?'':'none';if(h=='checkout')$('sum').innerHTML=lines()}
+$('lang').onclick=()=>{lang=lang=='en'?'he':'en';localStorage.lang=lang;applyLang()};$('cur').value=cur;$('cur').onchange=e=>{cur=e.target.value;localStorage.cur=cur;render();route()};
+$('m').onclick=e=>{if(e.target.id=='m')close_()};onhashchange=()=>{route();scrollTo(0,0)};save();applyLang();
 </script></body></html>
