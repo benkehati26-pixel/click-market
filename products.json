@@ -1,0 +1,86 @@
+[
+ {
+  "id": "p01",
+  "name": "Wireless Earbuds with Charging Case",
+  "cat": "Audio",
+  "price": 29.9,
+  "compare_at": 49.9
+ },
+ {
+  "id": "p02",
+  "name": "3-in-1 Wireless Charging Stand",
+  "cat": "Tech",
+  "price": 34.9,
+  "compare_at": 59.9
+ },
+ {
+  "id": "p03",
+  "name": "Foldable LED Desk Lamp",
+  "cat": "Home",
+  "price": 27.9,
+  "compare_at": 44.9
+ },
+ {
+  "id": "p04",
+  "name": "Insulated Steel Water Bottle 500ml",
+  "cat": "Outdoor",
+  "price": 19.9,
+  "compare_at": 32.9
+ },
+ {
+  "id": "p05",
+  "name": "Portable USB Blender Bottle",
+  "cat": "Kitchen",
+  "price": 24.9,
+  "compare_at": 39.9
+ },
+ {
+  "id": "p06",
+  "name": "10\" LED Ring Light with Tripod",
+  "cat": "Tech",
+  "price": 26.9,
+  "compare_at": 45.9
+ },
+ {
+  "id": "p07",
+  "name": "Reusable Pet Hair Remover Roller",
+  "cat": "Pets",
+  "price": 14.9,
+  "compare_at": 24.9
+ },
+ {
+  "id": "p08",
+  "name": "Mini Portable Projector",
+  "cat": "Tech",
+  "price": 69.9,
+  "compare_at": 109.9
+ },
+ {
+  "id": "p09",
+  "name": "Anti-Theft Laptop Backpack",
+  "cat": "Travel",
+  "price": 39.9,
+  "compare_at": 64.9
+ },
+ {
+  "id": "p10",
+  "name": "Fabric Resistance Bands (Set of 5)",
+  "cat": "Fitness",
+  "price": 16.9,
+  "compare_at": 27.9
+ },
+ {
+  "id": "p11",
+  "name": "Magnetic Car Vent Phone Mount",
+  "cat": "Travel",
+  "price": 12.9,
+  "compare_at": 21.9
+ },
+ {
+  "id": "p12",
+  "name": "Silicone Kitchen Utensil Set",
+  "cat": "Kitchen",
+  "price": 29.9,
+  "compare_at": 47.9
+ }
+]
